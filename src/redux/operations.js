@@ -22,10 +22,10 @@ export const addContact = createAsyncThunk(
       try {
         console.log('cont: ', contact);
           const response = await axios.post('/contacts', contact);
-          console.log("odp", response.data);
+          console.log('resp', response.data);
       return response.data;
       } catch (e) {
-          console.log("blad: ", e.message);
+          console.log('error: ', e.message);
       return thunkAPI.rejectWithValue(e.message);
     }
   }
