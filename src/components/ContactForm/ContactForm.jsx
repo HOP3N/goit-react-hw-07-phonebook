@@ -21,17 +21,22 @@ export const ContactForm = () => {
     setNumber(value);
   };
 
+  const resetForm = () => {
+    setName('');
+    setNumber('');
+  };
+
   const handleFormSubmit = e => {
     e.preventDefault();
-    const form = e.currentTarget;
-      const contactsLists = [...items];
+    // const form = e.currentTarget;
+    const contactsLists = [...items];
     if (contactsLists.findIndex(contact => name === contact.name) !== -1) {
       alert(`${name} is already in contacts.`);
     } else {
       dispatch(addContact({ name: name, phone: number }));
     }
 
-    form.reset();
+    resetForm();
   };
 
   return (
